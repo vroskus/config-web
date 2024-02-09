@@ -1,0 +1,30 @@
+{
+  "name": "@vroskus/config-web",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vroskus/config-web.git"
+  },
+  "description": "Tool for preparing config.js file",
+  "author": "Vilius Roškus",
+  "keywords": [
+    "coverage",
+    "test"
+  ],
+  "engines": {
+    "node": ">=8"
+  },
+  "bin": {
+    "config": "bin/index.js"
+  },
+  "scripts": {
+    "test": "echo 'No tests yet'"
+  },
+  "devDependencies": {},
+  "bugs": {
+    "url": "https://github.com/vroskus/config-web/issues"
+  },
+  "homepage": "https://github.com/vroskus/config-web#readme",
+  "main": "bin/index.js"
+}
