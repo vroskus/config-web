@@ -16,7 +16,7 @@
     "node": ">=8"
   },
   "bin": {
-    "config": "bin/index.js"
+    "config-web": "bin/index.js"
   },
   "scripts": {
     "test": "echo 'No tests yet'"
