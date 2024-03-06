@@ -1,5 +1,7 @@
 #! /usr/bin/env node
 
+/* eslint-disable no-console */
+
 const fs = require('fs');
 const path = require('path');
 
@@ -62,6 +64,7 @@ const getConfigParams = () => {
   let read = false;
   const params = [];
 
+  /* eslint-disable-next-line complexity */
   configFile.split(/\r?\n/).forEach((line) => {
     if (read === true && line.startsWith('];')) {
       read = false;
