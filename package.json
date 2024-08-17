@@ -23,11 +23,9 @@
     "test:eslint": "eslint bin --fix",
     "build": "echo 'Nothing to build'"
   },
-  "dependencies": {},
   "devDependencies": {
-    "eslint": "^8.57.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-plugin-import": "^2.29.1"
+    "@vroskus/eslint-config": "^1.0.6",
+    "eslint": "^9.9.0"
   },
   "bugs": {
     "url": "https://github.com/vroskus/config-web/issues"
