@@ -7,6 +7,9 @@ const path = require('path');
 
 const source = process.argv[2]; // Path to input config.js file
 const target = process.argv[3]; // Path to output config.js file
+const startEnd = process.argv[4]; // Start, End identifier overrides
+
+const successExitCode = 1;
 
 const cleanString = (input) => (typeof input !== 'string' ? '' : input.replace(
   /\\n/g,
@@ -55,31 +58,51 @@ const ensureDirectoryExistence = (filePath) => {
   return false;
 };
 
+const getStartEnd = () => {
+  // Default start, end identifiers
+  let output = [
+    'const params: Array<keyof $Config> = [',
+    '];',
+  ];
+
+  if (startEnd) {
+    output = startEnd.split(',');
+  }
+
+  return output;
+};
+
 const getConfigParams = () => {
   const configFile = fs.readFileSync(
     source,
     'utf8',
   );
+  const [
+    start,
+    end,
+  ] = getStartEnd();
 
   let read = false;
   const params = [];
+  const lineIncrement = 1;
 
-  /* eslint-disable-next-line complexity */
   configFile.split(/\r?\n/).forEach((line) => {
-    if (read === true && line.startsWith('];')) {
-      read = false;
-    }
-
     if (read === true) {
+      if (line.startsWith(end)) {
+        read = false;
+
+        return;
+      }
+
       const param = line.substring(
-        line.indexOf('\'') + 1,
+        line.indexOf('\'') + lineIncrement,
         line.lastIndexOf('\''),
       );
 
       params.push(param);
     }
 
-    if (line.startsWith('const params: Array<keyof $Config> = [')) {
+    if (line.startsWith(start)) {
       read = true;
     }
   });
@@ -126,5 +149,5 @@ try {
   console.log(`Config file prepared '${target}'`);
 } catch (error) {
   console.error(error);
-  process.exit(1);
+  process.exit(successExitCode);
 }

@@ -12,9 +12,9 @@ Call:
 
 ## Usage
 
-Just run ```config-web <input file path> <output file path>```
+Just run ```config-web <input file path> <output file path> <start,end identifiers>```
 
-Input file format:
+Default input file format:
 ```
 const params: Array<keyof $Config> = [
   'PARAM',
@@ -22,7 +22,15 @@ const params: Array<keyof $Config> = [
 ];
 ```
 
-Output file ormat:
+If ```<start,end identifiers>``` is defined, the search pattern becomes:
+```
+<start>
+  'PARAM',
+  ...
+<end>
+```
+
+Output file format:
 ```
 var config = {
   PARAM: "VALUE", 
