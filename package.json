@@ -24,7 +24,7 @@
     "build": "echo 'Nothing to build'"
   },
   "devDependencies": {
-    "@vroskus/eslint-config": "^1.0.17"
+    "@vroskus/eslint-config": "^1.0.18"
   },
   "bugs": {
     "url": "https://github.com/vroskus/config-web/issues"
