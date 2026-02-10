@@ -83,7 +83,8 @@ const getConfigParams = () => {
   ] = getStartEnd();
 
   let read = false;
-  const params = [];
+  const params = [
+  ];
   const lineIncrement = 1;
 
   configFile.split(/\r?\n/).forEach((line) => {
